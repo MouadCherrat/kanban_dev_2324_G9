@@ -7,10 +7,11 @@
     </div>
     <div class="card-content">
       <p>{{ board.description }}</p>
-      <p>Date Created: {{ board.dateCreation}}</p>
+      <p>Date Created: {{ board.dateCreation | date:'dd/MM/yyyy'}}</p>
       <p>User: {{ board.user.username }}</p>
     </div>
   </div>
 </div>
 
-<button routerLink="/Addboard">Add Board</button>
+<button class="btn-add" (click)="goToAddBoard()">Add Board</button> <br><br>
+<button class="btn-sprints" (click)="goToSprint()">Sprints</button>

@@ -28,7 +28,15 @@ export class BoardComponent implements OnInit {
         }
       );
   }
+
   showTasks(boardId: number): void {
     this.router.navigate(['/tasks', 'board', boardId]);
+  }
+
+  goToAddBoard(): void {
+    this.router.navigate(['/Addboard']);
+  }
+  goToSprint(): void {
+    this.router.navigate(['/sprints']);
   }
 }

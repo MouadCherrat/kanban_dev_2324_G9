@@ -2,6 +2,7 @@ package com.example.kanbansystem.service;
 
 import com.example.kanbansystem.Repository.TaskRepository;
 import com.example.kanbansystem.entities.Task;
+import com.example.kanbansystem.entities.TaskStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -27,5 +28,16 @@ public class TaskService {
     }
     public List<Task> getTasksByBoardId(Long boardId) {
         return taskRepository.findByBoardId(boardId);
+    }
+
+    public void updateTaskStatus(Long taskId, TaskStatus status) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        if (optionalTask.isPresent()) {
+            Task task = optionalTask.get();
+            task.setStatus(status);
+            taskRepository.save(task);
+        } else {
+            throw new RuntimeException("Task not found with id " + taskId);
+        }
     }
 }

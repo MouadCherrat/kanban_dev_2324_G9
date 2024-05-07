@@ -1,6 +1,7 @@
 package com.example.kanbansystem.controller;
 
 import com.example.kanbansystem.entities.Task;
+import com.example.kanbansystem.entities.TaskStatus;
 import com.example.kanbansystem.entities.User;
 import com.example.kanbansystem.service.EmailService;
 import com.example.kanbansystem.service.TaskService;
@@ -76,6 +77,15 @@ public class TaskController {
             return new ResponseEntity<>(tasks, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    @PutMapping("/tasks/{taskId}/status")
+    public ResponseEntity<?> updateTaskStatus(@PathVariable Long taskId, @RequestParam TaskStatus status) {
+        try {
+            taskService.updateTaskStatus(taskId, status);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 }

@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { TaskComponent } from './components/task/task.component';
 import { SprintComponent } from './components/sprint/sprint.component';
 import { AddSprintComponent } from './components/addsprint/addsprint.component';
+import { AddboardComponent } from './components/addboard/addboard.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +21,15 @@ import { AddSprintComponent } from './components/addsprint/addsprint.component';
     TaskComponent,
     SprintComponent,
     AddSprintComponent,
+    AddboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

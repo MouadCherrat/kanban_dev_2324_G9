@@ -1,32 +1,65 @@
-<h2>List of Tasks</h2>
-<ul>
-  <li *ngFor="let task of tasks">
-    <div>
-      <strong>Name:</strong> {{ task.name }}
+<div class="container">
+  <h2>{{ tasks.length ? tasks[0].board.name : 'Board Name' }}</h2>
+  <div class="kanban-board">
+    <!-- Todo Section -->
+    <div class="kanban-column" (dragover)="onDragOver($event)">
+      <h2>Todo</h2>
+      <div class="card" *ngFor="let task of filterTasks(TaskStatus.TODO)" [attr.draggable]="true" (dragstart)="onDragStart($event, task)" (drop)="onDrop($event, TaskStatus.TODO)">
+        <strong>Name:</strong> {{ task.name }}<br>
+        <strong>Description:</strong> {{ task.description }}<br>
+        <strong>Estimation:</strong> {{ task.estimation }}<br>
+        <strong>Status:</strong> {{ task.status }}<br>
+        <strong>Users:</strong>
+        <ul>
+          <li *ngFor="let user of task.users">{{ user.username }}</li>
+        </ul>
+        <strong>Sprints:</strong>
+        <ul>
+          <li *ngFor="let sprint of task.sprints">Name : {{ sprint.name }}</li>
+          <li *ngFor="let sprint of task.sprints">Start date : {{ sprint.startDate | date:'dd/MM/yyyy' }}</li>
+          <li *ngFor="let sprint of task.sprints">End Date : {{ sprint.endDate | date:'dd/MM/yyyy' }}</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <strong>Description:</strong> {{ task.description }}
+    <!-- In Progress Section -->
+    <div class="kanban-column" (dragover)="onDragOver($event)">
+      <h2>In Progress</h2>
+      <div class="card" *ngFor="let task of filterTasks(TaskStatus.IN_PROGRESS)" [attr.draggable]="true" (dragstart)="onDragStart($event, task)" (drop)="onDrop($event, TaskStatus.IN_PROGRESS)">
+        <strong>Name:</strong> {{ task.name }}<br>
+        <strong>Description:</strong> {{ task.description }}<br>
+        <strong>Estimation:</strong> {{ task.estimation }}<br>
+        <strong>Status:</strong> {{ task.status }}<br>
+        <strong>Users:</strong>
+        <ul>
+          <li *ngFor="let user of task.users">{{ user.username }}</li>
+        </ul>
+        <strong>Sprints:</strong>
+        <ul>
+          <li *ngFor="let sprint of task.sprints">Name : {{ sprint.name }}</li>
+          <li *ngFor="let sprint of task.sprints">Start date : {{ sprint.startDate | date:'dd/MM/yyyy' }}</li>
+          <li *ngFor="let sprint of task.sprints">End Date : {{ sprint.endDate | date:'dd/MM/yyyy' }}</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <strong>Status:</strong> {{ task.status }}
+    <!-- Done Section -->
+    <div class="kanban-column" (dragover)="onDragOver($event)">
+      <h2>Done</h2>
+      <div class="card" *ngFor="let task of filterTasks(TaskStatus.DONE)" [attr.draggable]="true" (dragstart)="onDragStart($event, task)" (drop)="onDrop($event, TaskStatus.DONE)">
+        <strong>Name:</strong> {{ task.name }}<br>
+        <strong>Description:</strong> {{ task.description }}<br>
+        <strong>Estimation:</strong> {{ task.estimation }}<br>
+        <strong>Status:</strong> {{ task.status }}<br>
+        <strong>Users:</strong>
+        <ul>
+          <li *ngFor="let user of task.users">{{ user.username }}</li>
+        </ul>
+        <strong>Sprints:</strong>
+        <ul>
+          <li *ngFor="let sprint of task.sprints">Name : {{ sprint.name }}</li>
+          <li *ngFor="let sprint of task.sprints">Start date : {{ sprint.startDate | date:'dd/MM/yyyy' }}</li>
+          <li *ngFor="let sprint of task.sprints">End Date : {{ sprint.endDate | date:'dd/MM/yyyy' }}</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <strong>Estimation:</strong> {{ task.estimation }}
-    </div>
-    <div>
-      <strong>Board:</strong> {{ task.board.name }}
-    </div>
-    <div>
-      <strong>Users:</strong>
-      <ul>
-        <li *ngFor="let user of task.users">{{ user.username }}</li>
-      </ul>
-    </div>
-    <div>
-      <strong>Sprints:</strong>
-      <ul>
-        <li *ngFor="let sprint of task.sprints">{{ sprint.name }}</li>
-      </ul>
-    </div>
-  </li>
-</ul>
+  </div>
+</div>

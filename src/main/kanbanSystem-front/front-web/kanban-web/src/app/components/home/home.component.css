@@ -1,93 +1,80 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-  min-height: 100vh;  
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, #9E7FB5 0%, #000 100%);
-}
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #fff; 
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 0; 
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
 }
 
 header {
-  padding: 10px 20px;
-  background-color: transparent; 
-  color: white;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: #001f3f;
+  padding: 20px 0;
 }
 
 .logo {
-  font-size: 24px;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-buttons .btn {
+  margin-left: 10px;
+  border-radius: 30px;
+  padding: 10px 25px;
   font-weight: bold;
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 10px;
+.nav-buttons .btn-primary {
+  background-color: #001f3f;
+  border-color: #001f3f;
 }
 
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  transition: background-color 0.3s, color 0.3s;
+.nav-buttons .btn-primary:hover {
+  background-color: #003366;
+  border-color: #003366;
 }
 
-.btn:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+.nav-buttons .btn-outline-light {
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
-.sign-in {
-  background-color: rgba(85, 85, 85, 0.2);
-}
-
-.sign-in:hover {
-  background-color: rgba(85, 85, 85, 0.4);
+.nav-buttons .btn-outline-light:hover {
+  color: #001f3f;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .hero {
-  flex: 1;
-  padding: 100px 20px;
   text-align: center;
-  background-color: transparent;
+  padding: 100px 0;
 }
 
-h1 {
-  font-size: 2.5rem;
+.hero h1 {
+  color: #001f3f;
+  font-size: 48px;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.hero p {
+  color: #6c757d;
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto 40px;
 }
 
 footer {
-  padding: 10px 20px;
+  background-color: #001f3f;
+  color: #ffffff;
   text-align: center;
-  background-color: transparent;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin-bottom: 0;
 }
