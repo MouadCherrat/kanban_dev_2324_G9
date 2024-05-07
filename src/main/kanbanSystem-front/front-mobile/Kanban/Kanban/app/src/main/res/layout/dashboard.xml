@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0D1E3"
+
     >
 
     <!-- Toolbar with "Kanban" title -->
@@ -33,12 +35,14 @@
 
 
     <androidx.cardview.widget.CardView
+
         android:id="@+id/boardCardView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
+        app:cardBackgroundColor="#ECEBEB"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -48,18 +52,21 @@
             android:id="@+id/boardTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Board Title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="16dp" />
+            android:text="Board Title \ndesc board 1\ndate created \nuser : admin"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            android:padding="24dp" />
 
         <TextView
             android:id="@+id/boardDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Board Description"
-            android:textSize="14sp"
+            android:text="Board 1"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:paddingStart="16dp"
+            android:textStyle="bold"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
             android:layout_below="@id/boardTitleTextView" />
@@ -71,7 +78,8 @@
 
         android:id="@+id/boardCardView1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
+        app:cardBackgroundColor="#ECEBEB"
         android:layout_margin="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="500dp"
@@ -86,30 +94,33 @@
             android:id="@+id/boardTitleTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Board Title"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="Board Title \ndesc board 1\ndate created \nuser : admin"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            android:padding="24dp" />
 
         <TextView
             android:id="@+id/boardDescriptionTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/boardTitleTextView"
+            android:text="Board 2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:paddingStart="16dp"
+            android:textStyle="bold"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
-            android:text="Board Description"
-            android:textSize="14sp" />
+            android:layout_below="@id/boardTitleTextView" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-
+        app:cardBackgroundColor="#ECEBEB"
         android:id="@+id/boardCardView2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
@@ -122,23 +133,29 @@
             android:id="@+id/boardTitleTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Board Title"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="Board Title \ndesc board 1\ndate created \nuser : admin"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            android:padding="24dp" />
 
         <TextView
             android:id="@+id/boardDescriptionTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/boardTitleTextView"
+            android:text="Board 3"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:paddingStart="16dp"
+            android:textStyle="bold"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
-            android:text="Board Description"
-            android:textSize="14sp" />
+            android:layout_below="@id/boardTitleTextView" />
 
     </androidx.cardview.widget.CardView>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import com.example.kanban.RetrofitClient;
+import com.example.kanban.ApiService;
 
 public class Main extends AppCompatActivity {
 
@@ -23,8 +28,14 @@ public class Main extends AppCompatActivity {
         // Retrieve a reference to the get started button from the XML layout
         getstartedButton = findViewById(R.id.getstarted);
 
-        // Add an event listener to detect clicks on the get started button using a lambda expression
-        getstartedButton.setOnClickListener(v -> goToNextPage());
+        // Add an event listener to detect clicks on the get started button
+        getstartedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Make a network request before going to the next page
+                fetchDataFromBackend();
+            }
+        });
     }
 
     // Method to transition to the next activity
@@ -32,6 +43,30 @@ public class Main extends AppCompatActivity {
         Intent intent = new Intent(Main.this, Login_main_controller.class);
         startActivity(intent);
         finish();  // Finish the current activity
+    }
+
+    // Method to fetch data from the backend
+    private void fetchDataFromBackend() {
+        ApiService service = RetrofitClient.getInstance().create(ApiService.class);
+        Call<String> call = service.getData();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    // Optionally process data here
+                    goToNextPage();
+                } else {
+                    // Handle errors here
+                    goToNextPage(); // Optionally move to the next page even on failure
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                // Handle the failure of the call
+                goToNextPage(); // Optionally move to the next page even on failure
+            }
+        });
     }
 
     @Override
@@ -45,10 +80,8 @@ public class Main extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_profile) {
             // Handle profile icon click
-            // You can open a profile activity or show a dialog for profile settings
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
